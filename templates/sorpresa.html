@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sorpresa</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <canvas id="sorpresaCanvas"></canvas>
+  <div class="overlay center-small">
+    <h2>Para siempre, mi amor</h2>
+    <p class="small">Frases que salen volando por la galaxia...</p>
+  </div>
+
+  <script>
+    const phrases = {{ phrases|tojson }};
+  </script>
+  <script src="{{ url_for('static', filename='js/sorpresa.js') }}"></script>
+</body>
+</html>
