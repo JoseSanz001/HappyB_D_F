@@ -1,36 +1,29 @@
-// poema.js - escribe el poema línea por línea con efecto de máquina de escribir
-(function(){
-  const container = document.getElementById('poem');
-  const actions = document.getElementById('poem-actions');
-  if(!container) return;
+const poem = [
+  "Hoy es un día especial, porque celebra la existencia de alguien que ilumina cada lugar al que llega.",
+  "No todos los días nace una persona capaz de transformar lo cotidiano en algo mágico, y tú tienes ese don: el de hacer sonreír sin intentarlo, el de contagiar alegría y dejar huellas bonitas en quienes te rodean.",
+  "Deseo de corazón que este nuevo año te traiga mil razones para reír, para soñar en grande y para seguir brillando como solo tú sabes hacerlo.",
+  "Que la vida te devuelva multiplicado todo lo bueno que das, porque personas como tú merecen lo mejor del mundo.",
+  "Gracias por ser inspiración, por tu forma única de ver la vida y por demostrar que la belleza verdadera va mucho más allá de lo que se ve.",
+  "Ojalá la vida me siga regalando el privilegio de coincidir contigo y verte alcanzar todo lo que te propongas.",
+  "Feliz cumpleaños, preciosa. Que tu día esté lleno de luz, amor y momentos que te hagan sentir tan especial como realmente eres. 🌙",
+  "ATT: J.A.S 😊😘"
+];
 
-  let iLine = 0;
-  function typeLine(line, cb){
-    container.innerHTML += "<div class='line'></div>";
-    const el = container.querySelectorAll('.line')[iLine];
-    let i = 0;
-    const t = setInterval(()=>{
-      el.textContent = line.substring(0, ++i);
-      if(i >= line.length){
-        clearInterval(t);
-        iLine++;
-        cb && cb();
-      }
-    }, 40); // velocidad por caracter
-  }
+const poemContainer = document.getElementById("poem");
+let delay = 0;
 
-  function next(){
-    if(iLine >= lines.length){
-      // terminado
-      actions.style.display = 'block';
-      return;
+poem.forEach((line, index) => {
+  setTimeout(() => {
+    const p = document.createElement("p");
+    p.classList.add("line");
+    p.textContent = line;
+    poemContainer.appendChild(p);
+
+    if (index === poem.length - 1) {
+      setTimeout(() => {
+        document.getElementById("poem-actions").style.display = "block";
+      }, 2000);
     }
-    typeLine(lines[iLine], ()=>{
-      // pequeña pausa antes de la siguiente
-      setTimeout(next, 600);
-    });
-  }
-
-  // inicio con leve retraso para sentir suspense
-  setTimeout(next, 800);
-})();
+  }, delay);
+  delay += 2500;
+});

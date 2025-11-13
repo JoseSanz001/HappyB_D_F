@@ -2,28 +2,24 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Feliz Cumpleaños Diana 🎉 </title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Para ti, mi niña 💕</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/poema.css') }}">
 </head>
 <body>
   <canvas id="starfield"></canvas>
 
   <div class="overlay">
     <div class="poem-box">
-      <h2>Para ti  Mi niña 😍</h2>
+      <h2>Para ti, mi niña 😍</h2>
       <div id="poem"></div>
       <div id="poem-actions" style="display:none;">
-        <a class="btn" href="{{ url_for('sorpresa') }}">Ver sorpresa final</a>
+        <a class="btn" href="{{ url_for('sorpresa') }}">Ver sorpresa final 💖</a>
       </div>
     </div>
   </div>
 
-  <script>
-    const lines = {{ lines|tojson }};
-  </script>
   <script src="{{ url_for('static', filename='js/starfield.js') }}"></script>
   <script src="{{ url_for('static', filename='js/poema.js') }}"></script>
 </body>
 </html>
-
