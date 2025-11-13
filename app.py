@@ -19,8 +19,7 @@ def poema():
 
 @app.route('/sorpresa')
 def sorpresa():
-    phrases = ["Te quiero", "Te adoro", "Eres mi todo", "Siempre contigo", "Feliz cumpleaños ❤️"]
-    return render_template('sorpresa.html', phrases=phrases)
+    return render_template('sorpresa.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

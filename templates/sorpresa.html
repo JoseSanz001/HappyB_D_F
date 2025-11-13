@@ -2,20 +2,21 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sorpresa</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tu galaxia de amor 💞</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/sorpresa.css') }}">
 </head>
 <body>
-  <canvas id="sorpresaCanvas"></canvas>
-  <div class="overlay center-small">
-    <h2>Para siempre, mi amor</h2>
-    <p class="small">Te quiero 😍</p>
+  <canvas id="galaxia"></canvas>
+
+  <div class="mensajes">
+    <h1>✨ Nuestra galaxia de amor ✨</h1>
+    <p class="texto">Eres mi universo, mi estrella favorita 🌙</p>
+    <p class="texto">Te adoro con todo mi corazón 💗</p>
+    <p class="texto">Gracias por iluminar mi vida 💫</p>
+    <p class="texto">Feliz cumpleaños, mi amor ❤️</p>
   </div>
 
-  <script>
-    const phrases = {{ phrases|tojson }};
-  </script>
   <script src="{{ url_for('static', filename='js/sorpresa.js') }}"></script>
 </body>
 </html>

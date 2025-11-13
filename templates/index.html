@@ -3,15 +3,130 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Feliz Cumpleaños</title>
+  <title>Feliz Cumpleaños 💖</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    /* 💫 Loader de inicio */
+    #loader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: radial-gradient(circle at center, #0b001a, #000);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: "Poppins", sans-serif;
+      font-size: 1.2rem;
+      z-index: 9999;
+    }
+
+    .heart {
+      font-size: 4rem;
+      animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+      100% { transform: scale(1); }
+    }
+
+    .mensaje {
+      margin-top: 1rem;
+      text-align: center;
+      color: #ffb6c1;
+    }
+
+    /* 💕 Estilo principal */
+    body.centered {
+      margin: 0;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      font-family: "Poppins", sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      border-radius: 25px;
+      box-shadow: 0 0 30px rgba(255, 0, 100, 0.2);
+      padding: 2.5rem;
+      text-align: center;
+      max-width: 400px;
+      transition: all 0.3s ease;
+      animation: aparecer 1s ease-in-out;
+    }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    h1 {
+      color: #ff4081;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .intro {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      background-color: #ff4081;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background-color: #e91e63;
+      transform: scale(1.05);
+    }
+
+    .small {
+      margin-top: 1.5rem;
+      color: #888;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body class="centered">
-  <div class="card">
+
+  <!-- 💫 Loader mientras Render despierta -->
+  <div id="loader">
+    <div class="heart">❤️</div>
+    <p class="mensaje">Cargando sorpresa... espera un momento, mi amor 💫</p>
+  </div>
+
+  <!-- 💌 Contenido principal -->
+  <div id="contenido" class="card" style="display:none;">
     <h1>Para ti, mi amor ❤️</h1>
     <p class="intro">Hoy es tu día y quiero celebrarlo contigo.</p>
-    <a class="btn" href="{{ url_for('poema') }}">Presiona aquí ❤️&lt;3</a>
+    <a class="btn" href="{{ url_for('poema') }}">Presiona aquí ❤️ &lt;3</a>
     <p class="small">Hecho con mucho cariño.</p>
   </div>
+
+  <script>
+    // 💞 Mostrar el loader por unos segundos
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("contenido").style.display = "block";
+      }, 4000); // 4 segundos de espera
+    });
+  </script>
+
 </body>
 </html>
